@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
-const PORT = 3030;
+const PORT = process.env.PORT || 3030;
 
-app.get('/', (req, res) => {
-    res.send('Servidor rodando!');
+// Endpoint para Webhook
+app.get('/webhook', (req, res) => {
+    res.status(200).send('Webhook funcionando!');
 });
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
+
